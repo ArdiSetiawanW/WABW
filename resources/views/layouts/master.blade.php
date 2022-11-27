@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{{config ('app.name')}} | @yield('title')</title>
+  <meta name="csrf-token" content="{{csrf_token()}}">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -18,7 +19,7 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2/dist/css/skins/_all-skins.min.css')}}">
   <!-- Morris chart -->
-  <link rel="stylesheet" href="{{asset('AdminLTE-2bower_components/morris.js/morris.css')}}">
+  <link rel="stylesheet" href="{{asset('AdminLTE-2/bower_components/morris.js/morris.css')}}">
   <!-- jvectormap -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2/bower_components/jvectormap/jquery-jvectormap.css')}}">
   <!-- Date Picker -->
@@ -27,6 +28,9 @@
   <link rel="stylesheet" href="{{asset('AdminLTE-2/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('AdminLTE-2/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -110,6 +114,9 @@
 <script src="{{asset('AdminLTE-2/bower_components/fastclick/lib/fastclick.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('AdminLTE-2/bower_components/chart.js/Chart.js')}}"></script>
+<!-- DataTables -->
+<script src="{{asset('AdminLTE-2/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('AdminLTE-2/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE-2/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -120,5 +127,9 @@
 <script src="{{asset('AdminLTE-2/dist/js/pages/dashboard2.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('AdminLTE-2/dist/js/demo.js')}}"></script>
+<!-- Validator -->
+<script src="{{asset('js/validator.min.js')}}"></script>
+
+@stack('scripts')
 </body>
 </html>
