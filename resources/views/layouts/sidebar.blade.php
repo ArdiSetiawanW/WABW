@@ -43,7 +43,7 @@
         </li>
         <li class="header">Transaksi</li>
         <li>
-            <a href="pages/widgets.html">
+            <a href="{{route('pengeluaran.index')}}">
               <i class="fa fa-money"></i> <span>Pengeluaran</span>
             </a>
         </li>
