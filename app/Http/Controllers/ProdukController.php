@@ -24,7 +24,7 @@ class ProdukController extends Controller
     {
         $produk = Produk::leftJoin('kategori', 'kategori.id_kategori', 'produk.id_kategori')
             ->select('produk.*', 'nama_kategori')
-            ->orderBy('kode_produk', 'asc')
+           // ->orderBy('kode_produk', 'asc')
             ->get();
 
         return datatables()
@@ -135,6 +135,16 @@ class ProdukController extends Controller
     {
         $produk = Produk::find($id);
         $produk->delete();
+
+        return response(null, 204);
+    }
+
+    public function deleteSelected(Request $request)
+    {
+        foreach ($request->id_produk as $id) {
+            $produk = Produk::find($id);
+            $produk->delete();
+        }
 
         return response(null, 204);
     }
