@@ -1,39 +1,42 @@
 @extends('layouts.master')
 
 @section('title')
-    Dashboard
+Dashboard
 @endsection
 
 @section('breadcrumb')
-    @parent
-    <li class="active">Kategori</li>
+@parent
+<li class="active">Kategori</li>
 @endsection
 
 @section('content')
-  
-  <div class="row">
-    <div class="col-md-12">
-      <div class="box">
-        <div class="box-header with-border">
-          <button onclick="addForm('{{route ('kategori.store')}}')" class="btn btn-success xs btn-flat"><i class="fa fa-plus-circle">Tambah</i></button>
-        </div>
-        
-        <div class="box-body table-resonsive">
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <th width="5%">No</th>
-                    <th>Kategori</th>
-                    <th width="15%"><div class="fa fa-cog"></div></th>
-                </thead>
-                <tbody></tbody>
-            </table>            
-        </div>
-      </div>
-    </div>
-  </div>
 
-  @includeIf('kategori.form')
-  @endsection
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <button onclick="addForm('{{route ('kategori.store')}}')" class="btn btn-success xs btn-flat"><i
+                        class="fa fa-plus-circle"> Tambah</i></button>
+            </div>
+
+            <div class="box-body table-resonsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <th width="5%">No</th>
+                        <th>Kategori</th>
+                        <th width="15%">
+                            <div class="fa fa-cog"></div>
+                        </th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@includeIf('kategori.form')
+@endsection
 
 
 @push('scripts')
@@ -98,18 +101,20 @@
                 return;
             });
     }
-    function deleteData(url){
-        $.post(url,{
-            '_token': $('[name=csrf-token').attr('content'),
-            '_method': 'delete'
-        })
-        .done((response) => {
-            table.ajax.reload();
-        })
-        .fail((errors) => {
-            alert('Tidak dapat menghapus Data');
-            return;
-        })
+    function deleteData(url) {
+        if (confirm('Yakin ingin menghapus data terpilih?')) {
+            $.post(url, {
+                    '_token': $('[name=csrf-token]').attr('content'),
+                    '_method': 'delete'
+                })
+                .done((response) => {
+                    table.ajax.reload();
+                })
+                .fail((errors) => {
+                    alert('Tidak dapat menghapus data');
+                    return;
+                });
+        }
     }
 </script>
 
