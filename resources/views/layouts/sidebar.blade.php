@@ -37,7 +37,7 @@
             </a>
         </li>
         <li>
-            <a href="pages/widgets.html">
+            <a href="{{route('supplier.index')}}">
               <i class="fa fa-truck"></i> <span>Supplier</span>
             </a>
         </li>
