@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Dashboard
+Daftar Kategori
 @endsection
 
 @section('breadcrumb')
