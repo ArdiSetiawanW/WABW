@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\MemberController;
@@ -10,6 +9,9 @@ use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PembelianDetailController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\PenjualanDetailController;
+use App\Http\Controllers\LaporanController;
+use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -63,6 +65,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/pembelian_detail', PembelianDetailController::class)
         ->except('create', 'show', 'edit');
 
+
     Route::get('/penjualan/data', [PenjualanController::class, 'data'])->name('penjualan.data');
     Route::get('/penjualan', [PenjualanController::class, 'index'])->name('penjualan.index');
     Route::get('/penjualan/{id}', [PenjualanController::class, 'show'])->name('penjualan.show');
@@ -77,5 +80,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/transaksi/{id}/data', [PenjualanDetailController::class, 'data'])->name('transaksi.data');
     Route::get('/transaksi/loadform/{diskon}/{total}/{diterima}', [PenjualanDetailController::class, 'loadForm'])->name('transaksi.load_form');
     Route::resource('/transaksi', PenjualanDetailController::class)
-        ->except('create', 'show', 'edit');
+         ->except('create', 'show', 'edit');
+
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/laporan/data/{awal}/{akhir}', [LaporanController::class, 'data'])->name('laporan.data');
+    Route::get('/laporan/pdf/{awal}/{akhir}', [LaporanController::class, 'exportPDF'])->name('laporan.export_pdf');
 });
