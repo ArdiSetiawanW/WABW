@@ -75,7 +75,7 @@
         </li>
         <li class="header">System</li>
         <li>
-            <a href="pages/widgets.html">
+            <a href="{{route('user.index')}}">
               <i class="fa fa-users"></i> <span>User</span>
             </a>
         </li>
