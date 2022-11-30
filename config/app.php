@@ -216,6 +216,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
+    'DB'=> Illuminate\Support\Facades\DB::class,
     'DataTables' => Yajra\DataTables\Facades\DataTables::class,
     'PDF' => Barryvdh\DomPDF\Facade::class,
     'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
